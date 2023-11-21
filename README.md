@@ -5,8 +5,8 @@ Research on embeddings in different languages for COS 597A.
 # Plan
 
 <ol>
-    <li>Fetch 5000 random sentences across various languages from Tatoeba data</li>
-    <li>Embed with various embedding models, including ada-002, store in Pinecone</li>
+    <li>Fetch 6000+ random sentences across various languages from Tatoeba data</li>
+    <li>Embed with ada-002, store in Pinecone</li>
     <li>Investigate relationship between semantic meaning, language, and location in embedding space</li>
     <li>Use PCA to visualize embeddings in 3D (https://github.com/openai/openai-cookbook/blob/main/examples/Visualizing_embeddings_in_3D.ipynb, as seen at 'Text similarity models’ in https://openai.com/blog/introducing-text-and-code-embeddings)
     </li>
