@@ -23,6 +23,8 @@ Research on embeddings in different languages for COS 597A.
     <li>German</li> 
     <li>Chinese</li>
     <li>Japanese</li>
+    <li>Russian</li>
+    <li>Portuguese</li>
 </ul>
 
 # How To
