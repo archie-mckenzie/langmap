@@ -62,6 +62,8 @@ def calculate_all_similarities(vectors):
                 similarities[j].append(similarity)
     return similarities 
 
+# ----- MAIN ----- #
+
 def main(filepath, index_name):
 
     with open(filepath, 'r') as file:
@@ -111,7 +113,7 @@ def main(filepath, index_name):
             for match in result.matches:
                 if match.id[0:len(str(i))+1] != f"{i}-":
                     outlier_tally[j][int(match.id.split('-')[1])] += 1    
-        print(f'{i} / {len(vectors_by_sentence)}')
+        print(f'{i + 1} / {len(vectors_by_sentence)}')
 
     print(outlier_tally)
 
@@ -161,7 +163,7 @@ def main(filepath, index_name):
     ax.set_ylabel('y')
     ax.set_zlabel('z')
     ax.legend(bbox_to_anchor=(1.1, 1))
-    plt.show()
+    # plt.show()
 
     """
     Write all the data
