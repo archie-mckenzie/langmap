@@ -20,7 +20,6 @@ import random
 
 from sklearn.decomposition import PCA
 
-
 import matplotlib.pyplot as plt
 
 # ----- FUNCTIONS ----- #
@@ -70,7 +69,7 @@ def main(filepath, index_name):
         vectors_by_sentence = json.load(file)
 
     # en, fr, es, de, zh, ja, ru, pt, in that order
-    language_codes = ['en', 'fr', 'es', 'de', 'zh', 'ja', 'ru', 'pt']
+    language_codes = ['fr', 'es', 'de', 'zh', 'ja', 'ru', 'pt', 'en']
     
     num_languages = len(vectors_by_sentence[0])
 
@@ -78,11 +77,12 @@ def main(filepath, index_name):
     Average difference that being a translation makes to similarity
     For same-sentences, various languages
     """
-
+    
     similarities_by_language = [[[] for _ in range(num_languages)] for _ in range(num_languages)]
 
     for vectors in vectors_by_sentence:
         similarities = calculate_all_similarities(vectors)
+        print(similarities)
         for i in range(len(similarities)):
             for j in range(i, len(similarities)):
                 similarities_by_language[i][j].append(similarities[i][j])
@@ -112,7 +112,7 @@ def main(filepath, index_name):
             result = index.query(vector, top_k=num_languages)
             for match in result.matches:
                 if match.id[0:len(str(i))+1] != f"{i}-":
-                    outlier_tally[j][int(match.id.split('-')[1])] += 1    
+                    outlier_tally[j][int(match.id.split('-')[1])] += 1 
         print(f'{i + 1} / {len(vectors_by_sentence)}')
 
     print(outlier_tally)
